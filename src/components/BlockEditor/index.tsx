@@ -1,7 +1,8 @@
+
 import { useState, useCallback, useEffect } from "react";
 import { BlockNoteEditor } from "@blocknote/core";
 import { 
-  BlockNoteViewRaw as BlockNoteView, 
+  BlockNoteView, 
   useBlockNote,
   getDefaultReactSlashMenuItems
 } from "@blocknote/react";
@@ -19,20 +20,6 @@ export interface BlockEditorProps {
   className?: string;
   readOnly?: boolean;
 }
-
-// Create a custom theme that doesn't use the SideMenu component
-const theme = {
-  // Using a simple theme string as the library doesn't export lightDefaultTheme
-  // We'll use a simple theme configuration that's compatible with BlockNoteViewRaw
-  colors: {
-    editor: {
-      text: "inherit",
-      background: "transparent",
-    },
-  },
-  // This ensures the SideMenu component is properly overridden
-  // sideMenu: false
-};
 
 export function BlockEditor({
   initialContent = "",
@@ -57,6 +44,8 @@ export function BlockEditor({
         "data-placeholder": placeholder,
       },
     },
+    // Add this to disable the Side Menu
+    sideMenu: false,
   });
 
   // Load initial markdown content
@@ -230,7 +219,10 @@ export function BlockEditor({
       <div className="relative">
         <BlockNoteView
           editor={editor}
-          theme="light"
+          theme={{
+            // Explicitly disable side menu
+            sideMenu: false
+          }}
           editable={!readOnly}
         />
         
