@@ -1,3 +1,4 @@
+
 import { useState, useCallback, useEffect } from "react";
 import { BlockNoteEditor } from "@blocknote/core";
 import { 
@@ -230,7 +231,7 @@ export function BlockEditor({
       <div className="relative">
         <BlockNoteView
           editor={editor}
-          theme="light"
+          theme={theme}
           editable={!readOnly}
         />
         
