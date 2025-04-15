@@ -1,7 +1,11 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { BlockNoteEditor } from "@blocknote/core";
-import { BlockNoteViewRaw, useBlockNote } from "@blocknote/react";
+import { 
+  BlockNoteView,
+  useBlockNote, 
+  lightDefaultTheme 
+} from "@blocknote/react";
 import "@blocknote/core/style.css";
 import "./editor.css";
 import { cn } from "@/lib/utils";
@@ -16,6 +20,15 @@ export interface BlockEditorProps {
   className?: string;
   readOnly?: boolean;
 }
+
+// Create a custom theme that doesn't use the SideMenu component
+const theme = {
+  ...lightDefaultTheme,
+  componentOverrides: {
+    // Explicitly overriding the SideMenu to avoid the error
+    SideMenu: () => null,
+  },
+};
 
 export function BlockEditor({
   initialContent = "",
@@ -211,9 +224,9 @@ export function BlockEditor({
       {!readOnly && <EditorToolbar editor={editor} />}
       
       <div className="relative">
-        <BlockNoteViewRaw
+        <BlockNoteView
           editor={editor}
-          theme="light"
+          theme={theme}
           editable={!readOnly}
         />
         
