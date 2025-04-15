@@ -31,7 +31,7 @@ export function BlockEditor({
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Create the editor with the proper options for BlockNote
-  const editor = useBlockNote({
+  const editor = useCreateBlockNote({
     domAttributes: {
       editor: {
         class: cn(
@@ -41,8 +41,8 @@ export function BlockEditor({
         "data-placeholder": placeholder,
       },
     },
-    // Add this to disable the Side Menu
-    sideMenu: false,
+    // Disable side menu
+    sideMenus: false,
   });
 
   // Load initial markdown content
@@ -214,13 +214,10 @@ export function BlockEditor({
       {!readOnly && <EditorToolbar editor={editor} />}
       
       <div className="relative">
-        <BlockNoteView
-          editor={editor}
-          theme={{
-            // Explicitly disable side menu
-            sideMenu: false
-          }}
+        <BlockNoteView 
+          editor={editor} 
           editable={!readOnly}
+          theme="light"
         />
         
         {showSlashMenu && !readOnly && (

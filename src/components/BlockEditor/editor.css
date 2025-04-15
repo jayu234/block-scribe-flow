@@ -102,22 +102,10 @@
   font-style: italic;
 }
 
-/* Slash menu scroll styling */
-.bn-slash-menu-scroll-container {
-  max-height: 300px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
-
-.bn-slash-menu-scroll-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.bn-slash-menu-scroll-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.bn-slash-menu-scroll-container::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--muted-foreground) / 0.3);
-  border-radius: 3px;
+/* Shadcn specific styles */
+:root {
+  --shadcn-editor-bg: hsl(var(--background));
+  --shadcn-border: hsl(var(--border));
+  --shadcn-primary: hsl(var(--primary));
+  --shadcn-primary-foreground: hsl(var(--primary-foreground));
 }
