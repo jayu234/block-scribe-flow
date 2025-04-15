@@ -31,7 +31,7 @@ const theme = {
     },
   },
   // This ensures the SideMenu component is properly overridden
-  sideMenu: false
+  // sideMenu: false
 };
 
 export function BlockEditor({
