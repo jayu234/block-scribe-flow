@@ -1,11 +1,8 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { BlockNoteEditor } from "@blocknote/core";
-import { 
-  BlockNoteView, 
-  useBlockNote,
-  getDefaultReactSlashMenuItems
-} from "@blocknote/react";
+import { useCreateBlockNote } from "@blocknote/react";
+import { BlockNoteView } from "@blocknote/shadcn";
 import "@blocknote/core/style.css";
 import "./editor.css";
 import { cn } from "@/lib/utils";
